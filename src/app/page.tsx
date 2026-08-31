@@ -13,6 +13,7 @@ import {
 } from "@/content/site";
 
 // Drop a photo at public/media/jack-gym.jpg and flip this to true.
+// Until then the hero shows a detail of David's Coronation of Napoleon.
 const HERO_PHOTO_READY = false;
 
 const marquee = [
@@ -54,14 +55,15 @@ export default function Home() {
           </div>
 
           <Reveal className="hero__photo" delay={150}>
-            {HERO_PHOTO_READY ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={asset("/media/jack-gym.jpg")} alt="Jack Bamis" />
-            ) : (
-              <span className="hero__photo-fallback">
-                Photo of Jack — add public/media/jack-gym.jpg
-              </span>
-            )}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={asset(
+                HERO_PHOTO_READY
+                  ? "/media/jack-gym.jpg"
+                  : "/media/hero-plate.jpg",
+              )}
+              alt={HERO_PHOTO_READY ? "Jack Bamis" : ""}
+            />
           </Reveal>
         </div>
       </section>

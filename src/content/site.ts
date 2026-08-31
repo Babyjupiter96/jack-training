@@ -73,7 +73,7 @@ export type Tier = {
 export const pricing: Tier[] = [
   {
     name: "Programming",
-    price: "$199",
+    price: "$150",
     cadence: "/ month",
     summary: "For people who train well on their own and want the plan right.",
     includes: [
@@ -85,7 +85,7 @@ export const pricing: Tier[] = [
   },
   {
     name: "Full coaching",
-    price: "$349",
+    price: "$300",
     cadence: "/ month",
     summary: "Programming, plus eyes on every week and a call to keep it honest.",
     includes: [

@@ -1,10 +1,17 @@
 import { asset } from "@/lib/base";
 
-/** The Perseus/Medusa plate behind the hero — the shared signature treatment. */
+/**
+ * David's "Coronation of Napoleon" behind the hero — Napoleon crowning
+ * himself. Pushed near-black, same signature treatment as the Forge plate.
+ */
 export function HeroBackdrop() {
   return (
     <div className="hero__backdrop" aria-hidden="true">
-      <img src={asset("/media/perseus-medusa.jpg")} alt="" loading="eager" />
+      <img
+        src={asset("/media/napoleon-coronation.jpg")}
+        alt=""
+        loading="eager"
+      />
     </div>
   );
 }
