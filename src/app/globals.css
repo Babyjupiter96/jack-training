@@ -439,6 +439,7 @@ ul {
 
 /* David's Coronation of Napoleon — Napoleon raising the crown, behind the
    hero copy. Kept legible on purpose. */
+/* The wounded-warrior marble — near-black plate, Perseus/Medusa treatment. */
 .hero__plate {
   position: absolute;
   inset: 0;
@@ -446,23 +447,16 @@ ul {
   overflow: hidden;
 }
 
-/* Split hero (interior pages): keep Napoleon to the copy side. */
-@media (min-width: 900px) {
-  .hero:not(.hero--solo) .hero__plate {
-    width: 64%;
-  }
-}
-
 .hero__plate::after {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
-      110% 90% at 42% 44%,
-      rgba(193, 68, 58, 0.12),
-      transparent 64%
+      120% 90% at 62% 34%,
+      rgba(193, 68, 58, 0.08),
+      transparent 62%
     ),
-    linear-gradient(180deg, rgba(6, 6, 6, 0.34), rgba(6, 6, 6, 0.5));
+    linear-gradient(90deg, rgba(6, 6, 6, 0.6), rgba(6, 6, 6, 0.2) 55%, transparent);
 }
 
 .hero__plate img {
@@ -471,31 +465,11 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 32%;
-  opacity: 0.4;
-  filter: grayscale(0.3) contrast(1.05) brightness(1) saturate(0.92);
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    #000,
-    #000 62%,
-    rgba(0, 0, 0, 0.35) 100%
-  );
-  mask-image: linear-gradient(180deg, #000, #000 62%, rgba(0, 0, 0, 0.35) 100%);
-}
-
-.hero--solo .hero__plate img {
-  opacity: 0.46;
-  object-position: 50% 30%;
-}
-
-.hero--solo .hero__plate::after {
-  background: linear-gradient(
-      90deg,
-      rgba(6, 6, 6, 0.7) 0%,
-      rgba(6, 6, 6, 0.32) 34%,
-      rgba(6, 6, 6, 0.12) 100%
-    ),
-    linear-gradient(180deg, rgba(6, 6, 6, 0.2), rgba(6, 6, 6, 0.45));
+  object-position: 64% 28%;
+  opacity: 0.22;
+  filter: grayscale(0.55) contrast(1.12) brightness(1.08);
+  -webkit-mask-image: linear-gradient(180deg, #000, #000 58%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000, #000 58%, transparent 100%);
 }
 
 /* ---- Marquee ---- */

@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="hero">
+      <section className="hero hero--solo">
         <HeroPlate />
         <div className="wrap hero__inner">
           <div className="hero__copy">
@@ -34,13 +34,6 @@ export default function Home() {
                 {hero.secondary}
               </Link>
             </div>
-          </div>
-          <div className="hero__photo hero__photo--figure">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={asset("/media/hero-figure.jpg")}
-              alt="Marble sculpture of a wounded Greek warrior"
-            />
           </div>
         </div>
       </section>
