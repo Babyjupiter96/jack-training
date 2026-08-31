@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { cinzel, cormorant, jost } from "./fonts";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -9,9 +11,15 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title,
+  title: { default: title, template: `%s — ${site.name}` },
   description,
-  openGraph: { title, description, url: site.url, siteName: site.name, type: "website" },
+  openGraph: {
+    title,
+    description,
+    url: site.url,
+    siteName: site.name,
+    type: "website",
+  },
   twitter: { card: "summary_large_image", title, description },
 };
 
@@ -29,25 +37,9 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <header className="nav">
-          <div className="wrap nav__row">
-            <a href="#top" className="wordmark">
-              Jack <span>&middot;</span> Bamis
-            </a>
-            <nav className="nav__right" aria-label="Primary">
-              <a className="nav__links" href="#method">
-                Method
-              </a>
-              <a className="nav__links" href="#pricing">
-                Pricing
-              </a>
-              <a href="#apply" className="btn btn--accent">
-                Apply
-              </a>
-            </nav>
-          </div>
-        </header>
+        <Nav />
         <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );

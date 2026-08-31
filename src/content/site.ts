@@ -1,15 +1,20 @@
 export const site = {
   name: "Jack Bamis",
-  brandTag: "1-on-1 Coaching",
   eyebrow: "Online Performance Coaching",
   email: "vandalbamis@gmail.com",
   location: "Phoenix, AZ · Coaching online",
   // TODO: add your training Instagram handle + URL.
   instagram: { handle: "", url: "" },
   rosterUrl: "https://govandals.com/sports/football/roster/jack-bamis/4910",
-  // Public URL — swap to a custom domain later.
   url: "https://babyjupiter96.github.io/jack-training",
 };
+
+export const nav = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/apply", label: "Apply" },
+];
 
 export const hero = {
   headline: "A body that",
@@ -19,7 +24,18 @@ export const hero = {
   secondary: "See pricing",
 };
 
-export const problem = {
+export const marquee = [
+  "Strength",
+  "Conditioning",
+  "Nutrition",
+  "Accountability",
+  "Weekly review",
+  "Form checks",
+  "Travel protocols",
+  "Deloads",
+];
+
+export const statement = {
   title: "You don't need more information",
   body: "You've read the articles. You've tried the apps. What's missing isn't knowledge — it's a plan that fits the week you actually have, and someone who changes it when the week changes.",
 };
@@ -56,8 +72,13 @@ export const deliverables: string[] = [
 ];
 
 export const coach = {
-  title: "Who's coaching you",
-  body: "Jack Bamis. Division I football at Idaho — running back and linebacker — then years training clients and coaching 7-on-7 on weekends. I've programmed for people cutting for a wedding and people trying to add fifty pounds to a squat. Same method every time: assess honestly, program precisely, adjust often.",
+  short:
+    "Jack Bamis. Division I football at Idaho — running back and linebacker — then years training clients and coaching 7-on-7 on weekends. Same method every time: assess honestly, program precisely, adjust often.",
+  long: [
+    "I played Division I football at the University of Idaho — running back and linebacker — with a freshman year jumping in track. Four years of being programmed for, tested, and coached to a standard.",
+    "After that I trained clients and coached football on weekends while I built the rest of my skill set. I've written programs for people cutting for a wedding and people trying to add fifty pounds to a squat. Different goals, same job: assess honestly, program precisely, adjust often.",
+    "This is 1-on-1 and online. You get my eyes on your week, a plan that moves with your life, and a straight answer every time you ask.",
+  ],
 };
 
 export type Tier = {
@@ -98,8 +119,31 @@ export const pricing: Tier[] = [
   },
 ];
 
+export const faq: { q: string; a: string }[] = [
+  {
+    q: "Do I need a full gym?",
+    a: "No. The program is built around the equipment you actually have — commercial gym, garage setup, or a couple of dumbbells and a bench. We sort that out on the assessment call.",
+  },
+  {
+    q: "What if I travel a lot?",
+    a: "Then that's built in. You get travel and hotel-gym protocols, and the week gets adjusted around trips instead of falling apart on them.",
+  },
+  {
+    q: "How do we communicate?",
+    a: "A dedicated thread for day-to-day questions, plus a written review every week. Full coaching adds a weekly video call.",
+  },
+  {
+    q: "Is there a contract?",
+    a: "No. It's month to month — cancel any time. Both plans start with the same assessment call so we know it's a fit.",
+  },
+  {
+    q: "Can we train in person?",
+    a: "In Phoenix, in blocks, by arrangement. Mention it in your application.",
+  },
+];
+
 export const apply = {
   title: "Apply",
-  body: "Coaching is 1-on-1, so spots are limited. Tell me where you are and what you're after. If it's a fit, we'll book the assessment call.",
-  cta: "Start your application",
+  body: "Coaching is 1-on-1, so spots are limited. Tell me where you are and what you're after. If it's a fit, we'll book the assessment call — no pressure either way.",
+  cta: "Send application",
 };

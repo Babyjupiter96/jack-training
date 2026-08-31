@@ -1,42 +1,24 @@
+import Link from "next/link";
 import { asset } from "@/lib/base";
 import { Reveal } from "@/components/Reveal";
-import { HeroBackdrop } from "@/components/HeroBackdrop";
+import { HeroPlate } from "@/components/HeroPlate";
 import {
-  site,
   hero,
-  problem,
+  marquee,
+  statement,
   method,
   deliverables,
   coach,
-  pricing,
-  apply,
+  site,
 } from "@/content/site";
-
-// Drop a photo at public/media/jack-gym.jpg and flip this to true.
-// Until then the hero shows a detail of David's Coronation of Napoleon.
-const HERO_PHOTO_READY = false;
-
-const marquee = [
-  "Strength",
-  "Conditioning",
-  "Nutrition",
-  "Accountability",
-  "Weekly review",
-  "Form checks",
-  "Travel protocols",
-  "Deloads",
-];
-
-const mailto = (subject: string) =>
-  `mailto:${site.email}?subject=${encodeURIComponent(subject)}`;
 
 export default function Home() {
   return (
-    <div id="top">
+    <>
       {/* Hero */}
       <section className="hero">
-        <HeroBackdrop />
-        <div className="wrap hero__grid">
+        <HeroPlate />
+        <div className="wrap hero__inner">
           <div className="hero__copy">
             <span className="eyebrow">{site.eyebrow}</span>
             <h1>
@@ -45,26 +27,18 @@ export default function Home() {
             </h1>
             <p className="hero__sub">{hero.sub}</p>
             <div className="hero__actions">
-              <a href="#apply" className="btn btn--accent">
+              <Link href="/apply" className="btn btn--solid">
                 {hero.primary}
-              </a>
-              <a href="#pricing" className="btn">
+              </Link>
+              <Link href="/pricing" className="btn">
                 {hero.secondary}
-              </a>
+              </Link>
             </div>
           </div>
-
-          <Reveal className="hero__photo" delay={150}>
+          <div className="hero__photo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={asset(
-                HERO_PHOTO_READY
-                  ? "/media/jack-gym.jpg"
-                  : "/media/hero-plate.jpg",
-              )}
-              alt={HERO_PHOTO_READY ? "Jack Bamis" : ""}
-            />
-          </Reveal>
+            <img src={asset("/media/jack-hero.jpg")} alt="Jack Bamis" />
+          </div>
         </div>
       </section>
 
@@ -80,35 +54,31 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Problem statement */}
+      {/* Statement */}
       <section className="statement">
-        <div className="wrap section">
-          <Reveal>
-            <p>
-              {problem.title}.{" "}
-              <span className="soft">{problem.body}</span>
-            </p>
+        <div className="wrap statement__inner">
+          <Reveal as="h2">{statement.title}.</Reveal>
+          <Reveal as="p" delay={80}>
+            {statement.body}
           </Reveal>
         </div>
       </section>
 
       {/* Method */}
-      <section id="method" className="section">
+      <section className="section" id="method">
         <div className="wrap">
-          <Reveal>
-            <div className="section-head">
-              <span className="num">01</span>
-              <h2>How it works</h2>
-            </div>
-            <p className="section-intro">
-              Four moving parts. The first three set it up; the fourth is why you
-              hire a coach instead of buying a template.
+          <Reveal className="sec-head">
+            <span className="kicker">How it works</span>
+            <h2>Four moving parts.</h2>
+            <p>
+              The first three set it up. The fourth is why you hire a coach
+              instead of buying a template.
             </p>
           </Reveal>
         </div>
         <div className="method">
           {method.map((m, i) => (
-            <Reveal key={m.title} className="method__cell" delay={i * 70}>
+            <Reveal key={m.title} className="method__cell" delay={i * 60}>
               <span className="method__num">{m.num}</span>
               <h3>{m.title}</h3>
               <p>{m.body}</p>
@@ -119,116 +89,67 @@ export default function Home() {
 
       {/* What you get */}
       <section className="section">
-        <div className="wrap get">
-          <Reveal>
-            <div className="section-head">
-              <span className="num">02</span>
-              <h2>What you get</h2>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <ul className="get__list">
-              {deliverables.map((d) => (
-                <li key={d}>{d}</li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Coach */}
-      <section className="section">
         <div className="wrap">
-          <Reveal className="coach">
-            <h2>{coach.title}</h2>
-            <p>{coach.body}</p>
-            <a href={site.rosterUrl} target="_blank" rel="noreferrer">
-              Vandals roster ↗
-            </a>
+          <Reveal className="sec-head">
+            <span className="kicker">What you get</span>
+            <h2>Everything, actually used.</h2>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="section">
-        <div className="wrap">
-          <Reveal>
-            <div className="section-head">
-              <span className="num">03</span>
-              <h2>Pricing</h2>
-            </div>
-            <p className="section-intro">
-              Month to month. Cancel any time. Both plans start with the same
-              assessment call.
-            </p>
-          </Reveal>
-          <div className="pricing">
-            {pricing.map((t, i) => (
-              <Reveal
-                key={t.name}
-                className={`tier${t.featured ? " tier--featured" : ""}`}
-                delay={i * 80}
-              >
-                <span className="tier__name">{t.name}</span>
-                <div>
-                  <span className="tier__price">{t.price}</span>
-                  <span className="tier__cadence">{t.cadence}</span>
-                </div>
-                <p className="tier__summary">{t.summary}</p>
-                <ul className="tier__includes">
-                  {t.includes.map((x) => (
-                    <li key={x}>{x}</li>
-                  ))}
-                </ul>
-                <a
-                  href={mailto(`Coaching — ${t.name}`)}
-                  className="btn btn--accent"
-                >
-                  Apply
-                </a>
+          <ul className="get-list">
+            {deliverables.map((d, i) => (
+              <Reveal as="li" key={d} delay={i * 50}>
+                <span className="idx">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>{d}</span>
               </Reveal>
             ))}
-          </div>
-          <p className="pricing-note">
-            In-person blocks in Phoenix by arrangement — ask in your application.
-          </p>
+          </ul>
         </div>
       </section>
 
-      {/* Apply */}
-      <section id="apply" className="section">
+      {/* Coach split */}
+      <section className="split split--flip">
+        <div className="split__media">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={asset("/media/jack-hero.jpg")} alt="Jack Bamis in the gym" />
+        </div>
+        <Reveal className="split__body">
+          <span className="kicker">Who's coaching you</span>
+          <h2 style={{ marginTop: "12px" }}>Jack Bamis</h2>
+          <p>{coach.short}</p>
+          <Link href="/about" className="link">
+            More about the method &rarr;
+          </Link>
+        </Reveal>
+      </section>
+
+      {/* CTA */}
+      <section className="section">
         <div className="wrap">
-          <Reveal className="apply">
-            <h2>{apply.title}</h2>
-            <p>{apply.body}</p>
-            <a
-              href={mailto("Coaching application — Jack Bamis")}
-              className="btn btn--accent"
+          <Reveal className="cta">
+            <h2>Ready to stop guessing?</h2>
+            <p>
+              Two plans, month to month, both starting with the same assessment
+              call.
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "14px",
+                justifyContent: "center",
+                flexWrap: "wrap",
+              }}
             >
-              {apply.cta}
-            </a>
-            <div className="apply__detail">
-              <span>{site.location}</span>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-              {site.instagram.url && (
-                <a href={site.instagram.url} target="_blank" rel="noreferrer">
-                  Instagram
-                </a>
-              )}
+              <Link href="/apply" className="btn btn--solid">
+                Apply for coaching
+              </Link>
+              <Link href="/pricing" className="btn">
+                See pricing
+              </Link>
             </div>
           </Reveal>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="wrap footer__row">
-          <span>
-            &copy; {new Date().getFullYear()} {site.name}
-          </span>
-          <span className="footer__tag">Built with intention</span>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
