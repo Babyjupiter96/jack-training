@@ -418,6 +418,25 @@ ul {
   );
 }
 
+/* Marble-sculpture variant — it's already monochrome on black. */
+.hero__photo--figure {
+  background: var(--ground);
+}
+
+.hero__photo--figure img {
+  object-position: 50% 42%;
+  filter: contrast(1.06) brightness(0.96);
+}
+
+.hero__photo--figure::after {
+  background: linear-gradient(
+      100deg,
+      rgba(6, 6, 6, 0.55) 0%,
+      transparent 30%
+    ),
+    linear-gradient(180deg, transparent 60%, rgba(6, 6, 6, 0.4) 100%);
+}
+
 /* David's Coronation of Napoleon — Napoleon raising the crown, behind the
    hero copy. Kept legible on purpose. */
 .hero__plate {
