@@ -29,7 +29,7 @@ export default function AboutPage() {
       <section className="split">
         <div className="split__media">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={asset("/media/jack-gym.jpg")} alt="Jack Bamis in the gym" />
+          <img src={asset("/media/jack-hero.jpg")} alt="Jack Bamis in the gym" />
         </div>
         <div className="split__body">
           {coach.long.map((para, i) => (
