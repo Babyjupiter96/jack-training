@@ -111,7 +111,7 @@ export default function Home() {
       <section className="split split--flip">
         <div className="split__media">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={asset("/media/jack-hero.jpg")} alt="Jack Bamis in the gym" />
+          <img src={asset("/media/jack-gym.jpg")} alt="Jack Bamis in the gym" />
         </div>
         <Reveal className="split__body">
           <span className="kicker">Who's coaching you</span>
