@@ -63,6 +63,34 @@ export const method: { num: string; title: string; body: string }[] = [
   },
 ];
 
+// TODO: this is a draft — rewrite in your own words.
+export const philosophy = {
+  kicker: "Philosophy",
+  title: "What I actually believe.",
+  statements: [
+    {
+      num: "I.",
+      title: "Structure beats motivation",
+      body: "Motivation is gone by week three. A program you don't have to think about is what's still running in month six.",
+    },
+    {
+      num: "II.",
+      title: "Programs don't fail — fit does",
+      body: "Most plans aren't wrong, they're just written for someone else's week. Fix the fit and the plan starts working.",
+    },
+    {
+      num: "III.",
+      title: "Adjust or it dies",
+      body: "Every plan meets a bad week eventually — travel, sleep, an injury. The plan that can't move with it gets abandoned. Mine moves.",
+    },
+    {
+      num: "IV.",
+      title: "Honesty over hype",
+      body: "I'll tell you what's actually working and what isn't, even when that's slower than what you wanted to hear.",
+    },
+  ],
+};
+
 export const deliverables: string[] = [
   "A training program built and updated for you — not pulled off a shelf",
   "Nutrition targets and a way to hit them without weighing every gram",
@@ -123,18 +151,17 @@ export const abChallenge = {
   kicker: "One-time · 75 Days",
   title: "The 75 Day Ab Challenge",
   body: "A focused 75-day block on the midsection: daily core programming, nutrition guardrails, and weekly check-ins to keep you honest. Same coaching, one clear goal, a hard deadline.",
-  price: "$30",
+  price: "$147",
   cadence: "one-time",
   image: "/media/ab-challenge.jpg",
   cta: "Apply for the Challenge",
 };
 
-// TODO: confirm price before launch.
 export const bicepProgram = {
   kicker: "One-time · Add-on Program",
   title: "The Bicep Program",
   body: "A focused arm block layered on top of your training: curl variation and volume progression, form checks, and a clear rep target every week until your arms actually change.",
-  price: "$XXX",
+  price: "$67",
   cadence: "one-time",
   image: "/media/bicep-program.jpg",
   imagePosition: "50% 32%",

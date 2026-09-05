@@ -3,7 +3,7 @@ import Link from "next/link";
 import { asset } from "@/lib/base";
 import { Reveal } from "@/components/Reveal";
 import { HeroPlate } from "@/components/HeroPlate";
-import { coach, method, site } from "@/content/site";
+import { coach, philosophy, method, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -45,6 +45,24 @@ export default function AboutPage() {
           >
             Vandals roster ↗
           </a>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <Reveal className="sec-head">
+            <span className="kicker">{philosophy.kicker}</span>
+            <h2>{philosophy.title}</h2>
+          </Reveal>
+        </div>
+        <div className="method">
+          {philosophy.statements.map((s, i) => (
+            <Reveal key={s.title} className="method__cell" delay={i * 60}>
+              <span className="method__num">{s.num}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </Reveal>
+          ))}
         </div>
       </section>
 
