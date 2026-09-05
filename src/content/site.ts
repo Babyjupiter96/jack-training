@@ -119,6 +119,17 @@ export const pricing: Tier[] = [
   },
 ];
 
+// TODO: confirm price before launch.
+export const abChallenge = {
+  kicker: "One-time · 75 Days",
+  title: "The 75 Day Ab Challenge",
+  body: "A focused 75-day block on the midsection: daily core programming, nutrition guardrails, and weekly check-ins to keep you honest. Same coaching, one clear goal, a hard deadline.",
+  price: "$XXX",
+  cadence: "one-time",
+  image: "/media/ab-challenge.jpg",
+  cta: "Apply for the Challenge",
+};
+
 export const faq: { q: string; a: string }[] = [
   {
     q: "Do I need a full gym?",

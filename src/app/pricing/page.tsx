@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { HeroPlate } from "@/components/HeroPlate";
-import { pricing, faq, site } from "@/content/site";
+import { asset } from "@/lib/base";
+import { pricing, abChallenge, faq, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -61,6 +62,28 @@ export default function PricingPage() {
             In-person blocks in Phoenix by arrangement — ask in your application.
           </p>
         </div>
+      </section>
+
+      <section className="split">
+        <div className="split__media">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={asset(abChallenge.image)} alt="" />
+        </div>
+        <Reveal className="split__body">
+          <span className="kicker">{abChallenge.kicker}</span>
+          <h2 style={{ marginTop: "12px" }}>{abChallenge.title}</h2>
+          <p>{abChallenge.body}</p>
+          <div style={{ margin: "18px 0 22px" }}>
+            <span className="tier__price">{abChallenge.price}</span>
+            <span className="tier__cadence">{abChallenge.cadence}</span>
+          </div>
+          <a
+            href={mailto(abChallenge.title)}
+            className="btn btn--accent"
+          >
+            {abChallenge.cta}
+          </a>
+        </Reveal>
       </section>
 
       <section className="section">
