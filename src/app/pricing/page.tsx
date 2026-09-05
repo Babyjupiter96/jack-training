@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { HeroPlate } from "@/components/HeroPlate";
 import { asset } from "@/lib/base";
-import { pricing, abChallenge, faq, site } from "@/content/site";
+import { pricing, abChallenge, bicepProgram, faq, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -82,6 +82,29 @@ export default function PricingPage() {
             className="btn btn--accent"
           >
             {abChallenge.cta}
+          </a>
+        </Reveal>
+      </section>
+
+      <section className="split split--flip">
+        <div className="split__media">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset(bicepProgram.image)}
+            alt=""
+            style={{ objectPosition: bicepProgram.imagePosition }}
+          />
+        </div>
+        <Reveal className="split__body">
+          <span className="kicker">{bicepProgram.kicker}</span>
+          <h2 style={{ marginTop: "12px" }}>{bicepProgram.title}</h2>
+          <p>{bicepProgram.body}</p>
+          <div style={{ margin: "18px 0 22px" }}>
+            <span className="tier__price">{bicepProgram.price}</span>
+            <span className="tier__cadence">{bicepProgram.cadence}</span>
+          </div>
+          <a href={mailto(bicepProgram.title)} className="btn btn--accent">
+            {bicepProgram.cta}
           </a>
         </Reveal>
       </section>

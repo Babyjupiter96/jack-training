@@ -129,6 +129,18 @@ export const abChallenge = {
   cta: "Apply for the Challenge",
 };
 
+// TODO: confirm price before launch.
+export const bicepProgram = {
+  kicker: "One-time · Add-on Program",
+  title: "The Bicep Program",
+  body: "A focused arm block layered on top of your training: curl variation and volume progression, form checks, and a clear rep target every week until your arms actually change.",
+  price: "$XXX",
+  cadence: "one-time",
+  image: "/media/bicep-program.jpg",
+  imagePosition: "50% 32%",
+  cta: "Apply for the Program",
+};
+
 export const faq: { q: string; a: string }[] = [
   {
     q: "Do I need a full gym?",
